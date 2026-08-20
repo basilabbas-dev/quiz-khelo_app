@@ -7,7 +7,7 @@ import { useState } from "react"
 
 import logo from "../assets/quiz-logo.png"
 
-export default function StartScreen(){
+export default function StarScreen(){
 
     const [name , setName] = useState("");
 
