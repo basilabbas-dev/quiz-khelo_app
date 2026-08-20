@@ -3,8 +3,8 @@ import Image from "next/image";
 import StartScreen from "../components/StartScreen";
 
 export const metadata = {
-  title: "Quiz Khelo | Welcome",
-  description: "Welcome to Quiz Khelo",
+  title: "Quiz Khelo | Home",
+  description: "Play exciting quizzes",
 };
 
 export default function WelcomePage(){
