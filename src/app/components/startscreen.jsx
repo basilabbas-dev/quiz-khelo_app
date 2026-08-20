@@ -1,9 +1,23 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 
+import { useState } from "react"
+
 import logo from "../assets/quiz-logo.png"
 
-export default function startScreen(){
+export default function StartScreen(){
+
+    const [name , setName] = useState("");
+
+    const handleFillName = (e) =>{
+        if(name.trim() === ""){
+            alert("please enter the name");
+            e.preventDefault();
+            return;
+        }
+    }
     return(
         <main>
 
@@ -36,13 +50,13 @@ export default function startScreen(){
                                 Enter your name
                             </label>
 
-                            <input id="name" type="text" placeholder="John Deh..." className="h-[68px] w-full rounded-[26px] border border-white bg-transparent px-7 text-[14px] text-white outline-none placeholder:text-white/80 focus:ring-0"/>
+                            <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="John Deh..." className="h-[68px] w-full rounded-[26px] border border-white bg-transparent px-7 text-[14px] text-white outline-none placeholder:text-white/80 focus:ring-0"/>
 
                         </div>
 
                         <div className="w-full max-w-[450px] mx-auto mt-40 mb-10">
                             
-                            <Link href="/category" className=" w-full h-[68px] rounded-[20px] bg-[#FFD166] text-white text-[24px] font-bold flex items-center justify-center transition duration-200 hover:bg-[#F8C85B] active:scale-[0.98]">Start</Link>
+                            <Link onClick={handleFillName} href="/category" className=" w-full h-[68px] rounded-[20px] bg-[#FFD166] text-white text-[24px] font-bold flex items-center justify-center transition duration-200 hover:bg-[#F8C85B] active:scale-[0.98]">Start</Link>
 
                         </div>
                     </section>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import StartScreen from "../components/startscreen";
+import StartScreen from "../components/Startscreen";
 
 export default function WelcomePage(){
   return(
