@@ -14,7 +14,7 @@ export default function StartScreen(){
     const handleFillName = (e) =>{
         if(name.trim() === ""){
             alert("please enter the name");
-            e.preventDefault();
+            e.preventDefault();    
             return;
         }
     }
@@ -30,6 +30,7 @@ export default function StartScreen(){
                     <div className="absolute top-[-70px] right-[-80px] h-62 w-62 sm:h-72 sm:w-72 rounded-full bg-white/5" />
 
                     <div className="absolute top-[130px] right-[-50px] h-26 w-26 sm:h-36 sm:w-36 rounded-full bg-white/5" />
+                    <div></div>
 
 
                     <section className=" p-5 sm:p-0">
