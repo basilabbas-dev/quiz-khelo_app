@@ -8,6 +8,11 @@ import { useRouter } from "next/navigation";
 import quizData from "../data";
 import categories from "../data/categories";
 
+export const metadata = {
+  title: "Quiz Khelo | Quiz",
+  description: "Test your knowledge",
+};
+
 
 function Quiz() {
   
