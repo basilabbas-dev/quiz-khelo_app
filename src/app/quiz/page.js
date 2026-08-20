@@ -1,61 +1,59 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 import quizData from "../data";
 import categories from "../data/categories";
 
-export const metadata = {
-  title: "Quiz Khelo | Quiz",
-  description: "Test your knowledge",
-};
-
 
 function Quiz() {
+
+  useEffect(() => {
+    document.title = "Quiz Khelo | Quiz";
+  }, []);
   
-    const searchParams = useSearchParams();
+  const searchParams = useSearchParams();
 
-    const category = searchParams.get("category")?.toLowerCase();
+  const category = searchParams.get("category")?.toLowerCase();
 
-    const questions = quizData[category];
+  const questions = quizData[category];
 
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
-    const question = questions[currentQuestion];
+  const question = questions[currentQuestion];
 
-    const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("");
 
-    const router = useRouter();
+  const router = useRouter();
 
-    const [showConfirm, setShowConfirm] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
-    const [score, setScore] = useState(0);
-    
-    // handle-next 
-    
-    const handleNext = () => {
-    if (!selected) {
-      alert("Please select an answer");
-      return;
-    }
+  const [score, setScore] = useState(0);
+  
+  // handle-next 
+  
+  const handleNext = () => {
+  if (!selected) {
+    alert("Please select an answer");
+    return;
+  }
 
-    const isCorrect = selected === questions[currentQuestion].answer;
+  const isCorrect = selected === questions[currentQuestion].answer;
 
-    const newScore = isCorrect ? score + 1 : score;
+  const newScore = isCorrect ? score + 1 : score;
 
-    setScore(newScore);
+  setScore(newScore);
 
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion((prev) => prev + 1);
-      setSelected("");
-    } else {
-      router.push(
-      `/result?score=${newScore}&category=${encodeURIComponent(category)}`);
-    }
-  };
+  if (currentQuestion < questions.length - 1) {
+    setCurrentQuestion((prev) => prev + 1);
+    setSelected("");
+  } else {
+    router.push(
+    `/result?score=${newScore}&category=${encodeURIComponent(category)}`);
+  }
+};
 
 
   return (

@@ -9,11 +9,7 @@ import { useRouter } from "next/navigation";
 import splashImg from "@/app/assets/splash.png"
 
 export default function Splash() {
-
-  useEffect(() => {
-    document.title = "Quiz Khelo | Loading...";
-  }, []);
-
+  
   const router = useRouter();
 
   useEffect(() => {
