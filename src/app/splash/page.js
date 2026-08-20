@@ -9,15 +9,20 @@ import { useRouter } from "next/navigation";
 import splashImg from "@/app/assets/splash.png"
 
 export default function Splash() {
-     const router = useRouter();
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-        router.push("/welcome");
-        }, 4000);
+  useEffect(() => {
+    document.title = "Quiz Khelo | Loading...";
+  }, []);
 
-        return () => clearTimeout(timer);
-    }, [router]);
+  const router = useRouter();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+    router.push("/welcome");
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [router]);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#4F8986]">
