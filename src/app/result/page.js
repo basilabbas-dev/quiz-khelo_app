@@ -10,14 +10,13 @@ import {
 
 import { useSearchParams } from "next/navigation";
 
-import { Suspense } from "react";
-
-export const metadata = {
-  title: "Quiz Khelo | Result",
-  description: "View your quiz result",
-};
+import { useEffect, Suspense } from "react";
 
 function ResultPage() {
+
+    useEffect(() => {
+        document.title = "Quiz Khelo | Result";
+    }, []);
 
     const searchParams = useSearchParams();
 

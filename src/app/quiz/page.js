@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -8,12 +8,11 @@ import { useRouter } from "next/navigation";
 import quizData from "../data";
 import categories from "../data/categories";
 
-export const metadata = {
-  title: "Quiz Khelo | Quiz",
-  description: "Test your knowledge",
-};
-
 function Quiz() {
+
+  useEffect(() => {
+   document.title = "Quiz Khelo | Quiz";
+  }, []);
   
   const searchParams = useSearchParams();
 
